@@ -12,8 +12,8 @@ app.use(express.json());
 
 app.get('/productos', async (req, res) => {
 	try {
-    const { id_categoria, id_marca, num_productos, order_by, type_order, activo } = req.body;
-		const listado_productos = await getListadoProductos(id_categoria, id_marca, num_productos, order_by, type_order, activo);
+    const { id_categoria, id_subcategoria, id_marca, num_productos, order_by, type_order, activo } = req.body;
+		const listado_productos = await getListadoProductos(id_categoria, id_subcategoria, id_marca, num_productos, order_by, type_order, activo);
 		res.status(200).json(listado_productos);
 	} catch (error) {
 		res.status(error.code || 500).send(error.message);
